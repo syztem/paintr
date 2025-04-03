@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintr</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <header>
+            <div class="title-bar">
+                <div class="window-controls">
+                    <button class="minimize" title="Minimize">_</button>
+                    <button class="maximize" title="Maximize">□</button>
+                    <button class="close" title="Close">×</button>
+                </div>
+                <div class="title">Paintr</div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" title="Toggle Theme">☀️</button>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-section">
+                    <button class="menu-btn" data-action="file" title="Open Image (Ctrl+O)">File</button>
+                    <button class="menu-btn" data-action="save" title="Save Image (Ctrl+S)">Save</button>
+                </div>
+                <div class="menu-section">
+                    <button class="menu-btn" data-action="undo" title="Undo (Ctrl+Z)">Undo</button>
+                    <button class="menu-btn" data-action="redo" title="Redo (Ctrl+Y)">Redo</button>
+                </div>
+                <div class="menu-section">
+                    <button class="menu-btn" data-action="help" title="Help">Help</button>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="toolbar">
+                <div class="toolbar-header">
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="eraser" title="Eraser">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M2 6h12v4h-12z M1 5h14v6h-14z M0 4h1v8h-1z M15 4h1v8h-1z M3 7v2h10v-2z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                        <button class="tool-btn active" data-tool="pencil" title="Pencil">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M12 0l-8 8-4 8 8-4 8-8-4-4zm-7 9l6-6 2 2-6 6-2-2z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                        <button class="tool-btn" data-tool="brush" title="Brush">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M7 0v5h2v-5zm-2 5v4h6v-4zm-2 4v7h10v-7zm-3-9h1v1h-1zm12 0h1v1h-1z M1 2h1v1h-1zm12 0h1v1h-1z M0 3h1v1h-1zm14 0h1v1h-1z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="toolbar-content">
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="fill" title="Fill Bucket">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M2 5 L 14 5 L 12 15 L 4 15 Z M 5 2 A 3 3 0 0 1 11 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="shape-rendering: geometricPrecision;"/></svg>
+                        </button>
+                        <button class="tool-btn" data-tool="text" title="Text Tool">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M1 1h14v2h-5v11h-4v-11h-5z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                        <button class="tool-btn" data-tool="line" title="Line">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M0 14l14-14h2l-14 14h-2z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                    </div>
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="rectangle" title="Rectangle">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M1 3h14v10h-14z m-1-1v12h16v-12z" fill="none" stroke="currentColor" stroke-width="2" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                        <button class="tool-btn" data-tool="circle" title="Circle/Ellipse">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M8 1a7 7 0 1 0 0 14a7 7 0 0 0 0-14zm0 12a5 5 0 1 1 0-10a5 5 0 0 1 0 10z" fill="none" stroke="currentColor" stroke-width="2" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                        <button class="tool-btn" data-tool="rounded-rect" title="Rounded Rectangle">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M4 1h8q3 0 3 3v8q0 3-3 3h-8q-3 0-3-3v-8q0-3 3-3zm0 1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2z" fill="none" stroke="currentColor" stroke-width="2" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                    </div>
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="airbrush" title="Airbrush">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M4 4h1v1h-1z m2 0h1v1h-1z m-1 1h1v1h-1z m-2 1h1v1h-1z m4 0h1v1h-1z m1-1h1v1h-1z m-1-1h1v1h-1z m3 1h1v1h-1z m-1 1h1v1h-1z m-1 1h1v1h-1z m-1 1h1v1h-1z m-1 1h1v1h-1z m-1 1h1v1h-1z m-1 1h1v1h-1z m3-1h1v1h-1z m1-1h1v1h-1z m1-1h1v1h-1z m1-1h1v1h-1z m1-1h1v1h-1z m0-1h1v1h-1z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                        <button class="tool-btn" data-tool="pick" title="Color Picker">
+                            <svg viewBox="0 0 16 16" class="icon"><path d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm-2-6c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z" fill="currentColor" style="shape-rendering: crispEdges;"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="drawingCanvas"></canvas>
+                <div class="status-bar">
+                    <div class="status-item">X: <span id="xCoord">0</span> Y: <span id="yCoord">0</span></div>
+                    <div class="status-item">Zoom: <span id="zoomLevel">100%</span></div>
+                    <div class="options-panel">
+                        <label for="brushSize">Size:</label>
+                        <input type="range" id="brushSize" name="brushSize" min="1" max="50" value="4">
+                        <span id="brushSizeValue">4</span>
+                    </div>
+                    <span id="currentColorDisplay" title="Current Color"></span>
+                    <span class="shortcuts"></span>
+                </div>
+            </div>
+            
+            <div class="color-palette">
+                <div class="color-palette-fixed">
+                    <div class="current-color-display">
+                        <div id="activeColorSwatch" title="Selected Color"></div>
+                    </div>
+                    <div class="color-mode-toggle">
+                        <button id="colorModeToggle" title="Toggle Color Mode">🎨</button>
+                    </div>
+                </div>
+                <div class="color-palette-scrollable">
+                    <div class="color-group contemporary-colors">
+                        <div class="color-btn" style="background-color: #2C3E50" title="Deep Blue Gray"></div>
+                        <div class="color-btn" style="background-color: #34495E" title="Dark Blue Gray"></div>
+                        <div class="color-btn" style="background-color: #1ABC9C" title="Turquoise"></div>
+                        <div class="color-btn" style="background-color: #16A085" title="Dark Turquoise"></div>
+                        <div class="color-btn" style="background-color: #2ECC71" title="Emerald"></div>
+                        <div class="color-btn" style="background-color: #27AE60" title="Dark Emerald"></div>
+                        <div class="color-btn" style="background-color: #3498DB" title="Sky Blue"></div>
+                        <div class="color-btn" style="background-color: #2980B9" title="Dark Sky Blue"></div>
+                        <div class="color-btn" style="background-color: #9B59B6" title="Amethyst"></div>
+                        <div class="color-btn" style="background-color: #E74C3C" title="Alizarin"></div>
+                        <div class="color-btn" style="background-color: #E67E22" title="Carrot"></div>
+                        <div class="color-btn" style="background-color: #F1C40F" title="Sunflower"></div>
+                        <div class="color-btn" style="background-color: #F39C12" title="Orange"></div>
+                        <div class="color-btn" style="background-color: #ECF0F1" title="Off White"></div>
+                    </div>
+                    <div class="color-group basic-colors" style="display: none;">
+                        <div class="color-btn" style="background-color: #000000" title="Black"></div>
+                        <div class="color-btn" style="background-color: #808080" title="Gray"></div>
+                        <div class="color-btn" style="background-color: #800000" title="Dark Red"></div>
+                        <div class="color-btn" style="background-color: #808000" title="Olive"></div>
+                        <div class="color-btn" style="background-color: #008000" title="Green"></div>
+                        <div class="color-btn" style="background-color: #008080" title="Teal"></div>
+                        <div class="color-btn" style="background-color: #000080" title="Navy"></div>
+                        <div class="color-btn" style="background-color: #800080" title="Purple"></div>
+                        <div class="color-btn" style="background-color: #C0C0C0" title="Silver"></div>
+                        <div class="color-btn" style="background-color: #FF0000" title="Red"></div>
+                        <div class="color-btn" style="background-color: #FFFF00" title="Yellow"></div>
+                        <div class="color-btn" style="background-color: #00FF00" title="Lime"></div>
+                        <div class="color-btn" style="background-color: #00FFFF" title="Aqua"></div>
+                        <div class="color-btn" style="background-color: #0000FF" title="Blue"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
