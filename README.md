@@ -7,7 +7,6 @@ A modern web-based Paint clone with a retro aesthetic and dark mode support. Pai
 - 🎨 Classic drawing tools (pencil, brush, eraser, shapes)
 - 🌓 Dark/Light mode toggle
 - 📱 Responsive design for all devices
-- 🖼️ Classic Windows 98-style UI elements
 - 🎯 Pixel-perfect drawing
 - ⚡ Smooth performance
 - 🔄 Undo/Redo support
