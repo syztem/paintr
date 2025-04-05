@@ -185,9 +185,9 @@ class Paintr {
             basicColors.style.display = isBasicVisible ? 'none' : 'flex';
             this.colorModeToggle.textContent = isBasicVisible ? '🎨' : '🎯';
         });
-        document.querySelector('.contemporary-colors').style.display = 'none';
-        document.querySelector('.basic-colors').style.display = 'flex';
-        this.colorModeToggle.textContent = '🎯';
+        document.querySelector('.contemporary-colors').style.display = 'flex';
+        document.querySelector('.basic-colors').style.display = 'none';
+        this.colorModeToggle.textContent = '🎨';
     }
 
     getMousePos(e) {
