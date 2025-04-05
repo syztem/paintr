@@ -234,7 +234,6 @@ main {
     min-height: 0;
 }
 
-/* Toolbar Sidebar */
 .toolbar {
     width: var(--toolbar-width);
     background: rgba(0, 0, 0, 0.2);
@@ -631,7 +630,6 @@ body.light-mode .shortcuts {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Light mode adjustments */
 body.light-mode .color-palette {
     background: rgba(0, 0, 0, 0.05);
 }
