@@ -6,7 +6,7 @@
     --dark-hover: rgba(255, 255, 255, 0.1);
     --dark-active: rgba(255, 255, 255, 0.15);
     --dark-shadow: rgba(0, 0, 0, 0.4);
-
+    
     --light-bg: #f8f9fa;
     --light-surface: rgba(255, 255, 255, 0.7);
     --light-border: rgba(0, 0, 0, 0.1);
@@ -14,7 +14,7 @@
     --light-hover: rgba(0, 0, 0, 0.05);
     --light-active: rgba(0, 0, 0, 0.1);
     --light-shadow: rgba(0, 0, 0, 0.1);
-
+    
     --accent-color: #3498db;
     --accent-hover: #2980b9;
     --success-color: #2ecc71;
@@ -23,7 +23,7 @@
     --transition-speed: 0.2s;
     --crosshatch-color-dark: rgba(255, 255, 255, 0.03);
     --crosshatch-color-light: rgba(0, 0, 0, 0.03);
-
+    
     --glass-blur: blur(10px);
     --glass-border: 1px solid rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -50,29 +50,29 @@ body {
     background: var(--dark-bg);
     color: var(--dark-text);
     transition: background-color 0.3s ease, color 0.3s ease;
-    background-image:
+    background-image: 
         linear-gradient(45deg, var(--crosshatch-color-dark) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-dark) 75%),
         linear-gradient(45deg, var(--crosshatch-color-dark) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-dark) 75%);
     background-size:
         8px 8px,
         8px 8px;
-    background-position:
+    background-position: 
         0 0,
-        4px 4px;
+        4px 4px;    
 }
 
 body.light-mode {
     background: var(--light-bg);
     color: var(--light-text);
-    background-image:
+    background-image: 
         linear-gradient(45deg, var(--crosshatch-color-light) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-light) 75%),
         linear-gradient(45deg, var(--crosshatch-color-light) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-light) 75%);
     background-size:
-        8px 8px,
-        8px 8px;
-    background-position:
-        0 0,
-        4px 4px;
+        8px 8px, 
+        8px 8px; 
+    background-position: 
+        0 0, 
+        4px 4px; 
 }
 
 .app-container {
@@ -189,7 +189,6 @@ body.light-mode {
     cursor: pointer;
     font-size: 12px;
     transition: all var(--transition-speed) ease;
-    position: relative;
 }
 
 .menu-btn::before {
@@ -235,6 +234,7 @@ main {
     min-height: 0;
 }
 
+/* Toolbar Sidebar */
 .toolbar {
     width: var(--toolbar-width);
     background: rgba(0, 0, 0, 0.2);
@@ -245,7 +245,6 @@ main {
     height: 100%;
     overflow: hidden;
 }
-
 .toolbar-header {
     padding: 16px;
     display: flex;
@@ -254,7 +253,6 @@ main {
     background: inherit;
     border-bottom: var(--glass-border);
 }
-
 .toolbar-content {
     flex: 1;
     overflow-y: auto;
@@ -269,7 +267,6 @@ main {
     flex-direction: column;
     gap: 8px;
 }
-
 .tool-btn {
     width: 32px;
     height: 32px;
@@ -319,7 +316,6 @@ main {
 .toolbar-content::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
 }
-
 body.light-mode .toolbar {
     background: rgba(0, 0, 0, 0.05);
 }
@@ -354,12 +350,12 @@ body.light-mode .toolbar-content::-webkit-scrollbar-thumb:hover {
     .toolbar {
         width: 44px;
     }
-
+    
     .tool-btn {
         width: 28px;
         height: 28px;
     }
-
+    
     .tool-btn .icon {
         width: 20px;
         height: 20px;
@@ -370,12 +366,12 @@ body.light-mode .toolbar-content::-webkit-scrollbar-thumb:hover {
     .toolbar {
         width: 40px;
     }
-
+    
     .tool-btn {
         width: 24px;
         height: 24px;
     }
-
+    
     .tool-btn .icon {
         width: 18px;
         height: 18px;
@@ -461,7 +457,6 @@ body.light-mode .toolbar-content::-webkit-scrollbar-thumb:hover {
     text-align: right;
     white-space: nowrap;
 }
-
 body.light-mode .status-bar {
     background-color: var(--light-bg);
     color: var(--light-text);
@@ -484,7 +479,6 @@ body.light-mode .shortcuts {
 #brushSize {
     width: 100px;
     height: 4px;
-    -webkit-appearance: none;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 2px;
     outline: none;
@@ -556,7 +550,7 @@ body.light-mode .shortcuts {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: calc(14 * 40px);
+    min-height: calc(14 * 40px); 
 }
 
 .color-group {
@@ -637,6 +631,7 @@ body.light-mode .shortcuts {
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* Light mode adjustments */
 body.light-mode .color-palette {
     background: rgba(0, 0, 0, 0.05);
 }
@@ -663,27 +658,27 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 768px) {
     .app-container {
-        height: 90vh;
-        max-width: 90vw;
-        margin: 5vh auto;
+        height: 90vh; 
+        max-width: 90vw; 
+        margin: 5vh auto; 
     }
-
+    
     .status-item {
         min-width: 80px;
         padding: 0 4px;
     }
-
+    
     .toolbar,
     .color-palette {
-        width: 44px;
+        width: 44px; 
         padding: 8px;
     }
-
+    
     .tool-btn {
         width: 28px;
         height: 28px;
     }
-
+    
     .color-btn {
         width: 24px;
         height: 24px;
@@ -714,12 +709,12 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     .color-palette {
         width: 44px;
     }
-
+    
     .current-color-display {
         width: 40px;
         height: 40px;
     }
-
+    
     .color-btn {
         width: 28px;
         height: 28px;
@@ -733,27 +728,27 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 480px) {
     .app-container {
-        height: 95vh;
-        max-width: 95vw;
-        margin: 2.5vh auto;
+        height: 95vh; 
+        max-width: 95vw; 
+        margin: 2.5vh auto; 
     }
-
+    
     .status-item {
         min-width: 70px;
         padding: 0 2px;
     }
-
+    
     .toolbar,
     .color-palette {
         width: 40px;
         padding: 6px;
     }
-
+    
     .tool-btn {
         width: 24px;
         height: 24px;
     }
-
+    
     .color-btn {
         width: 20px;
         height: 20px;
@@ -790,12 +785,12 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     .color-palette {
         width: 40px;
     }
-
+    
     .current-color-display {
         width: 36px;
         height: 36px;
     }
-
+    
     .color-btn {
         width: 24px;
         height: 24px;
@@ -807,11 +802,13 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     }
 }
 
+
 @media (max-height: 600px) {
     .app-container {
         height: calc(100vh - 20px);
     }
 }
+
 
 .ripple {
     position: absolute;
@@ -829,6 +826,7 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     }
 }
 
+
 .tool-btn,
 .menu-btn,
 .color-btn,
@@ -837,6 +835,7 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     position: relative;
     overflow: hidden;
 }
+
 
 .tool-btn:hover,
 .menu-btn:hover,
@@ -854,10 +853,12 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     transform: translateY(0);
 }
 
+
 .tool-btn.active,
 .color-btn.active {
     box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
 }
+
 
 .tool-btn,
 .menu-btn,
@@ -900,4 +901,4 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
 
 .notification.info {
     background: rgba(52, 152, 219, 0.9);
-}
+} 
