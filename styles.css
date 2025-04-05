@@ -6,7 +6,7 @@
     --dark-hover: rgba(255, 255, 255, 0.1);
     --dark-active: rgba(255, 255, 255, 0.15);
     --dark-shadow: rgba(0, 0, 0, 0.4);
-    
+
     --light-bg: #f8f9fa;
     --light-surface: rgba(255, 255, 255, 0.7);
     --light-border: rgba(0, 0, 0, 0.1);
@@ -14,7 +14,7 @@
     --light-hover: rgba(0, 0, 0, 0.05);
     --light-active: rgba(0, 0, 0, 0.1);
     --light-shadow: rgba(0, 0, 0, 0.1);
-    
+
     --accent-color: #3498db;
     --accent-hover: #2980b9;
     --success-color: #2ecc71;
@@ -23,8 +23,7 @@
     --transition-speed: 0.2s;
     --crosshatch-color-dark: rgba(255, 255, 255, 0.03);
     --crosshatch-color-light: rgba(0, 0, 0, 0.03);
-    
-    /* New modern variables */
+
     --glass-blur: blur(10px);
     --glass-border: 1px solid rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -51,36 +50,29 @@ body {
     background: var(--dark-bg);
     color: var(--dark-text);
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Layered background: Crosshatch ONLY */
-    background-image: 
-        /* Crosshatch */
+    background-image:
         linear-gradient(45deg, var(--crosshatch-color-dark) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-dark) 75%),
         linear-gradient(45deg, var(--crosshatch-color-dark) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-dark) 75%);
-        /* Removed Rotating Gradient */
     background-size:
-        8px 8px, /* Slightly larger texture size */
+        8px 8px,
         8px 8px;
-    background-position: 
-        0 0, /* Crosshatch */
-        4px 4px; /* Adjusted offset */
-    
-    /* animation: rotateGradient 240s linear infinite; REMOVED */
+    background-position:
+        0 0,
+        4px 4px;
 }
 
 body.light-mode {
     background: var(--light-bg);
     color: var(--light-text);
-    background-image: 
-        /* Crosshatch */
+    background-image:
         linear-gradient(45deg, var(--crosshatch-color-light) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-light) 75%),
         linear-gradient(45deg, var(--crosshatch-color-light) 25%, transparent 25%, transparent 75%, var(--crosshatch-color-light) 75%);
     background-size:
-        8px 8px, 
-        8px 8px; 
-    background-position: 
-        0 0, 
-        4px 4px; 
-    /* animation: rotateGradient 240s linear infinite; REMOVED */
+        8px 8px,
+        8px 8px;
+    background-position:
+        0 0,
+        4px 4px;
 }
 
 .app-container {
@@ -100,7 +92,6 @@ body.light-mode {
     transition: none;
 }
 
-/* Remove the hover effect */
 .app-container:hover {
     box-shadow: 0 12px 40px var(--dark-shadow);
 }
@@ -198,6 +189,7 @@ body.light-mode {
     cursor: pointer;
     font-size: 12px;
     transition: all var(--transition-speed) ease;
+    position: relative;
 }
 
 .menu-btn::before {
@@ -240,10 +232,9 @@ main {
     display: flex;
     flex: 1;
     overflow: hidden;
-    min-height: 0; /* Important for flex child */
+    min-height: 0;
 }
 
-/* Toolbar Sidebar */
 .toolbar {
     width: var(--toolbar-width);
     background: rgba(0, 0, 0, 0.2);
@@ -255,7 +246,6 @@ main {
     overflow: hidden;
 }
 
-/* Fixed top section */
 .toolbar-header {
     padding: 16px;
     display: flex;
@@ -265,7 +255,6 @@ main {
     border-bottom: var(--glass-border);
 }
 
-/* Scrollable tool groups */
 .toolbar-content {
     flex: 1;
     overflow-y: auto;
@@ -313,7 +302,6 @@ main {
     height: 24px;
 }
 
-/* Custom scrollbar */
 .toolbar-content::-webkit-scrollbar {
     width: 4px;
 }
@@ -332,7 +320,6 @@ main {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Light mode adjustments */
 body.light-mode .toolbar {
     background: rgba(0, 0, 0, 0.05);
 }
@@ -363,17 +350,16 @@ body.light-mode .toolbar-content::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .toolbar {
         width: 44px;
     }
-    
+
     .tool-btn {
         width: 28px;
         height: 28px;
     }
-    
+
     .tool-btn .icon {
         width: 20px;
         height: 20px;
@@ -384,12 +370,12 @@ body.light-mode .toolbar-content::-webkit-scrollbar-thumb:hover {
     .toolbar {
         width: 40px;
     }
-    
+
     .tool-btn {
         width: 24px;
         height: 24px;
     }
-    
+
     .tool-btn .icon {
         width: 18px;
         height: 18px;
@@ -476,7 +462,6 @@ body.light-mode .toolbar-content::-webkit-scrollbar-thumb:hover {
     white-space: nowrap;
 }
 
-/* Light mode adjustments */
 body.light-mode .status-bar {
     background-color: var(--light-bg);
     color: var(--light-text);
@@ -544,7 +529,6 @@ body.light-mode .shortcuts {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Color Palette Sidebar */
 .color-palette {
     width: var(--color-palette-width);
     background: rgba(0, 0, 0, 0.2);
@@ -572,7 +556,7 @@ body.light-mode .shortcuts {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: calc(14 * 40px); /* 14 colors * (32px button + 8px gap) */
+    min-height: calc(14 * 40px);
 }
 
 .color-group {
@@ -635,7 +619,6 @@ body.light-mode .shortcuts {
     margin: 0 auto;
 }
 
-/* Custom scrollbar for color palette */
 .color-palette-scrollable::-webkit-scrollbar {
     width: 4px;
 }
@@ -654,7 +637,6 @@ body.light-mode .shortcuts {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Light mode adjustments */
 body.light-mode .color-palette {
     background: rgba(0, 0, 0, 0.05);
 }
@@ -679,30 +661,29 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .app-container {
-        height: 90vh; /* Increased from 80vh */
-        max-width: 90vw; /* Increased from 80vw */
-        margin: 5vh auto; /* Adjusted from 10vh */
+        height: 90vh;
+        max-width: 90vw;
+        margin: 5vh auto;
     }
-    
+
     .status-item {
         min-width: 80px;
         padding: 0 4px;
     }
-    
+
     .toolbar,
     .color-palette {
-        width: 44px; /* Even more compact on mobile */
+        width: 44px;
         padding: 8px;
     }
-    
+
     .tool-btn {
         width: 28px;
         height: 28px;
     }
-    
+
     .color-btn {
         width: 24px;
         height: 24px;
@@ -733,12 +714,12 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     .color-palette {
         width: 44px;
     }
-    
+
     .current-color-display {
         width: 40px;
         height: 40px;
     }
-    
+
     .color-btn {
         width: 28px;
         height: 28px;
@@ -752,27 +733,27 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 480px) {
     .app-container {
-        height: 95vh; /* Increased from 85vh */
-        max-width: 95vw; /* Increased from 85vw */
-        margin: 2.5vh auto; /* Adjusted from 7.5vh */
+        height: 95vh;
+        max-width: 95vw;
+        margin: 2.5vh auto;
     }
-    
+
     .status-item {
         min-width: 70px;
         padding: 0 2px;
     }
-    
+
     .toolbar,
     .color-palette {
         width: 40px;
         padding: 6px;
     }
-    
+
     .tool-btn {
         width: 24px;
         height: 24px;
     }
-    
+
     .color-btn {
         width: 20px;
         height: 20px;
@@ -809,12 +790,12 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     .color-palette {
         width: 40px;
     }
-    
+
     .current-color-display {
         width: 36px;
         height: 36px;
     }
-    
+
     .color-btn {
         width: 24px;
         height: 24px;
@@ -826,14 +807,12 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     }
 }
 
-/* Add minimum dimensions to prevent too small containers */
 @media (max-height: 600px) {
     .app-container {
         height: calc(100vh - 20px);
     }
 }
 
-/* Ripple effect */
 .ripple {
     position: absolute;
     border-radius: 50%;
@@ -850,7 +829,6 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     }
 }
 
-/* Add to existing button styles */
 .tool-btn,
 .menu-btn,
 .color-btn,
@@ -860,7 +838,6 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
 }
 
-/* Enhanced hover states */
 .tool-btn:hover,
 .menu-btn:hover,
 .color-btn:hover,
@@ -877,13 +854,11 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     transform: translateY(0);
 }
 
-/* Add subtle glow effects */
 .tool-btn.active,
 .color-btn.active {
     box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
 }
 
-/* Enhanced transitions */
 .tool-btn,
 .menu-btn,
 .color-btn,
@@ -894,7 +869,6 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
     transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Notifications */
 .notification {
     position: fixed;
     bottom: 20px;
@@ -926,4 +900,4 @@ body.light-mode .color-palette-scrollable::-webkit-scrollbar-thumb:hover {
 
 .notification.info {
     background: rgba(52, 152, 219, 0.9);
-} 
+}
